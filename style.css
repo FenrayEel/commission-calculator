@@ -1,0 +1,74 @@
+@font-face {
+    font-family: PlanteFont;
+    src: url(plante.ttf);
+}
+
+@font-face {
+    font-family: YummyFont;
+    src: url(yummy.ttf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    
+}
+#title {
+    font-size: 5vw;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vw;
+    font-family: PlanteFont;
+
+    --bg-size: 400%;
+    --color-one: hsl(206 98.4% 25.3%);
+    --color-two: hsl(306 100% 50%);
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+        )
+        0 0 / var(--bg-size) 100%;
+        
+    background-clip: text;
+    -webkit-background-clip: text;
+    -o-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -o-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+    animation: testcolor 8s linear infinite;
+    -moz-animation: testcolor 8s linear infinite;
+    -webkit-animation: testcolor 8s linear infinite;
+    -o-animation: testcolor 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes testcolor {
+        to {
+            background-position: var(--bg-size) 0;
+        }
+    }
+}
+
+label {
+    text-align: left;
+    /*font-size: calc(2vw + 0.390625vw);*/
+    font-size: 2rem;
+    font-family: YummyFont;
+}
+
+input, select {
+    float: center;
+}
+
+.container {
+    width: 100%;
+}
