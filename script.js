@@ -90,8 +90,9 @@ function MultiThings( count ) {
 
 	if ( count == 0 ) multiplier = 0;
     if ( count > 1 ) {
-        multiplier = +count + 0.75;
+        multiplier = +count * 0.75;
     }
+    console.log( multiplier );
     return multiplier;
 }
 
@@ -99,18 +100,18 @@ function CalculateFinalPrice() {
     var finalPrice = 0;
 
     var typeOfDrawnPrice = ( CheckTypeOfDrawn( $("#typeOfDrawn").val() ) );
-    var numberOfCharactersFurryCount = $("#numberOfCharactersFurry").val();
-    var numberOfCharactersHumanCount = $("#numberOfCharactersHuman").val();
-    var numberOfCharactersFeralCount = $("#numberOfCharactersFeral").val();
+    var numberOfCharactersFurryCount = Number($("#numberOfCharactersFurry").val());
+    var numberOfCharactersHumanCount = Number($("#numberOfCharactersHuman").val());
+    var numberOfCharactersFeralCount = Number($("#numberOfCharactersFeral").val());
 
-    var numberOfAnimalsSmallCount = $("#numberOfAnimalsSmall").val();
-    var numberOfAnimalsBigCount = $("#numberOfAnimalsBig").val();
+    var numberOfAnimalsSmallCount = Number($("#numberOfAnimalsSmall").val());
+    var numberOfAnimalsBigCount = Number($("#numberOfAnimalsBig").val());
 
     var resolutionPrice = CheckResolution();
     var backgroundPrice = CheckBackground();
 
-    var numberOfPropsLargeCount = $("#numberOfPropsLarge").val();
-    var numberOfPropsSmallCount = $("#numberOfPropsSmall").val();
+    var numberOfPropsLargeCount = Number($("#numberOfPropsLarge").val());
+    var numberOfPropsSmallCount = Number($("#numberOfPropsSmall").val());
 
     var heavyDetailsBodyChecked = 0;
     if ( $("#heavyDetailsBody").is(':checked') ) {
@@ -128,9 +129,9 @@ function CalculateFinalPrice() {
         hotOrder = 3;
     }
 
-    finalPrice = typeOfDrawnPrice * ( ( MultiThings( numberOfCharactersFurryCount ) ) + ( MultiThings( numberOfCharactersHumanCount ) ) + ( MultiThings( numberOfCharactersFeralCount ) ) );
+    finalPrice = typeOfDrawnPrice * ( ( MultiThings( numberOfCharactersFurryCount + numberOfCharactersHumanCount + numberOfCharactersFeralCount ) ) );
     finalPrice = finalPrice + ( numberOfAnimalsSmallCount * 7 ) + ( numberOfAnimalsBigCount * 15 ) + resolutionPrice + backgroundPrice + heavyDetailsBodyChecked;
-    finalPrice = finalPrice + ( ( MultiThings( numberOfPropsLargeCount ) * 8 ) + ( MultiThings( numberOfPropsSmallCount ) ) * 4  )
+    finalPrice = finalPrice + ( ( MultiThings( numberOfPropsLargeCount ) * 8 ) + ( MultiThings( numberOfPropsSmallCount ) ) * 4  );
     finalPrice = finalPrice * hotOrder;
 
     return finalPrice;
