@@ -58,6 +58,15 @@ body {
     }
 }
 
+.finalDiv {
+	font-size: 5vw;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vw;
+    font-family: PlanteFont;
+}
+
 label {
     text-align: left;
     /*font-size: calc(2vw + 0.390625vw);*/
@@ -71,4 +80,17 @@ input, select {
 
 .container {
     width: 100%;
+}
+
+footer {
+	bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer {
+    margin: auto;
+    width: 50%;
+    text-align:center;
+    color: black;
 }

@@ -88,142 +88,21 @@
                 <input type="checkbox" id="hotorder" name="hotorder">
                 <label for="hotorder">Hot Order! (Finish in 24h) ?</label>
             </div>
+			
+			<div class="container">
+				<input type="checkbox" id="animated" name="hotorder">
+                <label for="animated">Animated</label>
+			</div>
         </form>
         <br/>
-        <div>
+        <div class="finalDiv">
             Final price: <span id="finalPrice">$0</span>
         </div>
 
-        <script>
-            var finalPrice = 0;
-
-            function CheckTypeOfDrawn( type ) {
-                var returnPrice = 0;
-
-                var method = $('#typeOfMethod').val();
-
-                //console.log( "Metoda " + method );
-                switch( type ) {
-                case "bust": 
-                    switch ( method ) {
-                        case "sketch":
-                            returnPrice = 5;
-                            break;
-                        case "sketchColor":
-                            returnPrice = 8;
-                            break;
-                        case "fullshading":
-                            returnPrice = 15;
-                            break;
-                    }
-                    return returnPrice;
-                case "halfbody": 
-                    switch ( method ) {
-                        case "sketch":
-                            returnPrice = 10;
-                            break;
-                        case "sketchColor":
-                            returnPrice = 15;
-                            break;
-                        case "fullshading":
-                            returnPrice = 22;
-                            break;
-                    }
-                    return returnPrice;
-                case "fullbody": 
-                    switch ( method ) {
-                        case "sketch":
-                            returnPrice = 15;
-                            break;
-                        case "sketchColor":
-                            returnPrice = 25;
-                            break;
-                        case "fullshading":
-                            returnPrice = 35;
-                            break;
-                    }
-                    return returnPrice;
-                }
-            }
-
-            function CheckResolution() {
-                switch ( $("#typeOfResolution").val() ) {
-                    case "fullhd":
-                        return 0;
-                    case "4k":
-                        return 0;
-                    case "customRes":
-                        return 5;
-                }
-            }
-
-            function CheckBackground() {
-                switch ( $("#typeOfBackground").val() ) {
-                    case "flatcolor":
-                        return 0;
-                    case "transparent":
-                        return 0;
-                    case "gradient":
-                        return 0;
-                    case "custom":
-                        return 5;
-                }
-            }
-
-            function MultiThings( count ) {
-                if ( count == 0 ) return 0;
-                if ( count > 1 ) {
-                    return 1 + ( count * 0.75 )
-                }
-
-                return 1
-            }
-
-            $('input, select').change(function(){
-                var typeOfDrawnPrice = ( CheckTypeOfDrawn( $("#typeOfDrawn").val() ) );
-                var numberOfCharactersFurryCount = $("#numberOfCharactersFurry").val();
-                var numberOfCharactersHumanCount = $("#numberOfCharactersHuman").val();
-                var numberOfCharactersFeralCount = $("#numberOfCharactersFeral").val();
-
-                var numberOfAnimalsSmallCount = $("#numberOfAnimalsSmall").val();
-                var numberOfAnimalsBigCount = $("#numberOfAnimalsBig").val();
-
-                var resolutionPrice = CheckResolution();
-                var backgroundPrice = CheckBackground();
-
-                var numberOfPropsLargeCount = $("#numberOfPropsLarge").val();
-                var numberOfPropsSmallCount = $("#numberOfPropsSmall").val();
-
-                var heavyDetailsBodyChecked = 0;
-                if ( $("#heavyDetailsBody").is(':checked') ) {
-                    heavyDetailsBodyChecked = 10;
-                }
-
-                var hotOrder = 1;
-                if ( $("#hotorder").is(':checked') ) {
-                    hotOrder = 2;
-                }
-
-               
-
-                finalPrice = typeOfDrawnPrice + ( MultiThings( numberOfCharactersFurryCount ) ) + ( MultiThings( numberOfCharactersHumanCount ) ) + ( MultiThings( numberOfCharactersFeralCount ) );
-                finalPrice = finalPrice + ( numberOfAnimalsSmallCount * 7 ) + ( numberOfAnimalsBigCount * 15 ) + resolutionPrice + backgroundPrice + heavyDetailsBodyChecked;
-                finalPrice = finalPrice + ( ( MultiThings( numberOfPropsLargeCount ) * 8 ) + ( MultiThings( numberOfPropsSmallCount ) ) * 4  )
-                finalPrice = finalPrice * hotOrder;
-
-                $('#finalPrice').text("$" + finalPrice.toString());
-            });
-            /*
-            $('input').keyup(function(){
-                var typeDrawn  = Number($('#first').val());   // get value of field
-                var secondValue = Number($('#second').val()); // convert it to a float
-                var thirdValue  = Number($('#third').val());
-                var fourthValue = Number($('#fourth').val());
-
-                $('#total_expenses1').html(firstValue + secondValue + thirdValue + fourthValue); // add them and output it
-                document.getElementById('total_expenses2').value = firstValue + secondValue + thirdValue + fourthValue;
-            // add them and output it
-            });*/
-        </script>
+        
+		<script src="script.js"></script>
+		<footer>
+			<div class="footer">Copyright © 2023 - Fenray Eel</div>
+		</footer>
     </body>
 </html>
